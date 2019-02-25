@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Templates 101</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <div class="jumbotron text-center">
+        <h1><em>Everything But the Little Green Men!!</em></h1>
+        <p>
+          <a class = "btn btn-primary btn-lg" href="/scrape" role = 'button'>Get Data</a>
+        </p>
+      </div>
+      <div class = 'row'>
+        <div class = 'col-md-12'>
+          <h1>New Mars News</h1>
+          <h2> {{Mars.Mars_News_Title}}</h2>
+          <p>{{Mars.Mars_News_Text}}</p>
+        </div>
+      </div> 
+      <div class = 'row'>
+        <div class = 'col-md-8'>
+          <h1>Latest Mars Image</h1>
+          <img src="{{Mars.Nasa_Image}}" alt="Mars Image">
+        </div>
+        <div class = 'col-md-4'>
+          <h1>Looks Hot and Dusty on Old Red</h1>
+          <p>{{Mars.Mars_Weather}}</p>
+          <h1>Did you know??</h1>
+          <table>{{Mars.HTML_Table}}</table>
+
+        </div>
+        <div class = 'row'>
+          <div class = 'col-md-12'>
+            <h1 class = 'text-center'>Old Red's Hemispheres</h1>
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col-md-6'>
+            <h3>{{Mars.Image1_Title}}</h3>
+            <img class = 'Hemis' src=" {{Mars.Image1_Url}}" alt="Mars_Image">
+          </div>
+          <div class = 'col-md-6'>
+            <h3>{{Mars.Image2_Title}}</h3>
+            <img  class = 'Hemis' src="{{Mars.Image2_Url}}" alt="Mars_Image">
+          </div>
+        </div>
+        <div class = 'row'>
+          <div class = 'col-md-6'>
+            <h3>{{Mars.Image3_Title}}</h3>
+            <img class = 'Hemis' src="{{Mars.Image3_Url}}" alt="Mars_Image">
+          </div>
+          <div class = 'col-md-6'>
+          
+            <h3>{{Mars.Image4_Title}}</h3>
+            <img class = 'Hemis' src="{{Mars.Image4_Url}}" alt = Mars_Image/>
+
+          </div>
+        </div>
+      </div> 
+    </body>  
+  </html> <!-- Render our data -->
