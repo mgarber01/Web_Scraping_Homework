@@ -3,8 +3,9 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import requests
-
+from config import password
 from selenium import webdriver
+import time
     # a note here with the dependencies, I was unable to access my twitter account with splinter, and decided to use 
     # Selenium Webdriver instead 
 
@@ -23,10 +24,11 @@ def scrape():
     browser.get(url)
     elem = browser.find_element_by_id('full_image')
     elem.click()
+    time.sleep(2)
     html = browser.page_source
     soup2 = bs(html, 'html.parser')
-    full_image = str(soup2.find_all('img',class_='fancybox-image'))
-    full_image_url = url[:-22]+full_image[47:-29]
+    full_image = str(soup2.find_all('img',class_='fancybox-image'))[47:-29]
+    full_image_url = url[:-22]+full_image
 
     ## Twitter Page
     browser.get('https://twitter.com/marswxreport?lang=en')
@@ -50,7 +52,7 @@ def scrape():
     soup3 = bs(html2,'lxml')
     table= soup3.find_all('table')[0]
     df = pd.read_html(str(table))
-    html_table = df[0].to_html()
+    html_table = str(df[0].to_html())
 
     ## Hemispheric Images
     browser.get('https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars')
